@@ -1,0 +1,315 @@
+/* Common */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin:0;
+    position:relative;
+    background-color: #D7E2E0;
+}
+
+body::after {
+    content:'';
+    display:block;
+    height:50px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.content {
+    padding-top: 180px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    /*border: 1px solid black;*/
+}
+
+.sectors {
+    /*border: 1px solid green;*/
+}
+
+/* Navigation bar */
+.navstyle {
+    background-color: #222222;
+    border-color: #080808;
+    height: 130px;
+    transition: height 0.5s;
+}
+
+.navstyle-small {
+    background-color: #222222;
+    border-color: #080808;
+    height: 65px;
+    transition: height 0.5s;
+}
+
+.logo {
+    max-width: 200px;
+    max-height:200px;
+    padding-top: 16px;
+    transition: all 0.5s;
+}
+
+.logo-small {
+    max-width: 100px;
+    max-height:100px;
+    padding-top: 8px;
+    transition: all 0.5s;
+}
+
+.navlink-container {
+    padding-top: 40px;
+    transition: all 0.5s;
+}
+
+.navlink-container-small {
+    padding-top: 5px;
+    transition: all 0.5s;
+}
+
+.navlink {
+    font-size: 24px;
+    color: #CCAF3D;
+    transition: all 0.5s;
+}
+
+.navlink:hover, .navlink:focus {
+    /*color: #222222;
+    background-color: #CCAF3D !important;*/
+    color: #ccaf3d;
+    background-color: #222222 !important;
+    border: 1px solid #ccaf3d !important;
+}
+
+.navlink-small {
+    font-size: 18px;
+    color: #CCAF3D;
+    transition: all 0.5s;
+}
+
+.navlink-small:hover, .navlink-small:focus {
+    color: #222222;
+    background-color: #CCAF3D !important;
+}
+
+.dropdown-main {
+    background-color: #222222;
+}
+
+.dropdown-item {
+    color: #ccaf3d !important;
+    font-size: 20px;
+}
+
+.dropdown-item:hover, .dropdown-item:focus, .dropdown-item:active {
+    color: #222222 !important;
+    background-color: #ccaf3d !important;
+    background-image: none !important;
+}
+
+.dropdown-item-small {
+    color: #ccaf3d !important;
+    font-size: 14px;
+}
+
+.dropdown-item-small:hover, .dropdown-item-small:focus, .dropdown-item-small:active {
+    color: #222222 !important;
+    background-color: #ccaf3d !important;
+    background-image: none !important;
+}
+
+.gray {
+    background-color: #9d9d9d;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: #222222;
+    border-color: #080808;
+    color: #ccaf3d;
+    position:absolute;
+    bottom:0;
+
+}
+
+.footer-container {
+    text-align: center;
+    padding-top: 12px;
+}
+
+.footer-text {
+    padding-top: 4px;
+}
+
+.social-links {
+    transition: color 0.5s;
+    color: #ccaf3d;
+    padding-left: 10px;
+}
+
+.social-facebook:hover {
+    color: #4267b2;
+}
+
+.social-linkedin:hover {
+    color: #283e4a;
+}
+
+.social-twitter:hover {
+    color: #1da1f2;
+}
+
+/* Home page*/
+.profile-pic {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.home-content-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.home-content {
+    max-width: 860px;
+}
+
+.home-img {
+    max-width: 100%;
+    max-height:100%;
+}
+
+.about-img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.home-backgroundcolor {
+    background-color: #ffffff;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+}
+
+/* About page*/
+.banner-vertical {
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 15px;
+}
+
+.banner-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.banner-first {
+    padding-top: 65px; !important
+}
+
+.about-stamp {
+    max-width:100%;
+}
+
+/* Work with page */
+.contact-button {
+    color: #222222;
+    background-color: #ffffff;
+    border: 1px solid #222222;
+    border-radius: 6px;
+    width: 140px;
+    height: 40px;
+    font-size: 18px;
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.contact-button:hover {
+    color: #ffffff;
+    background-color: #222222;
+}
+.contact-button:focus {
+    outline: 0;
+}
+
+.contact-button-success:focus {
+    outline: 0;
+    box-shadow: 0 0 8pt 2pt green;
+}
+
+.contact-button-fail:focus {
+    outline: 0;
+    box-shadow: 0 0 8pt 2pt red;
+}
+
+.contact-field {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 0;
+    background-color: lightgray;
+}
+
+.contact-field:hover, .contact-field:active, .contact-field:focus {
+    border: 0;
+    outline: 0;
+}
+
+.contact-message {
+    min-height: 100px;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background-color: lightgray;
+}
+
+.contact-message:hover, .contact-message:active, .contact-message:focus {
+    border: 0;
+    outline: 0;
+}
+
+/* Fonts */
+
+.font-red {
+    color:#991010;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-size-14 {
+    font-size:19px;
+}
+
+.font-size-18 {
+    font-size:24px;
+}
+
+.font-size-26 {
+    font-size:35px;
+}
+
+.font-center {
+    text-align: center;
+}
+
+.font-timesnewroman {
+    font-family: "Times New Roman";
+}
+
+.font-raleway {
+    font-family: "raleway";
+}
