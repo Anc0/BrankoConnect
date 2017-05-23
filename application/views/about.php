@@ -7,7 +7,7 @@
         <?= $content ?>
 
     </div>
-    <div class="sectors col-xs-12 col-sm-2">
+    <div class="sectors hidden-xs col-sm-2">
         <div class="row">
             <div class="sectors banner-vertical banner-first col-xs-6 col-sm-12">
                 <a id="banner_003" class="link-click" href="http://Branko.elitemarketingpro.com/go/amf" target="_blank"><img

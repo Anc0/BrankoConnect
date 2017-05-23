@@ -82,6 +82,7 @@ a:hover {
     color: #ccaf3d;
     background-color: #222222 !important;
     border: 1px solid #ccaf3d !important;
+    text-decoration: none;
 }
 
 .navlink-small {
@@ -121,8 +122,101 @@ a:hover {
     background-image: none !important;
 }
 
+.dropdown-collapsible {
+
+}
+
 .gray {
     background-color: #9d9d9d;
+}
+
+.collapsed {
+ display: none;
+}
+
+.collapse-button {
+    padding-top: 45px;
+    padding-right: 10px;
+    border: none;
+    color: #ccaf3d;
+    background-color: #222222;
+    transition: 0.5s all;
+}
+
+.collapse-button:focus {
+    outline: none;
+}
+
+.collapse-button-small {
+    padding-top: 17px;
+    padding-right: 10px;
+    border: none;
+    color: #ccaf3d;
+    background-color: #222222;
+    transition: 0.5s all;
+}
+
+.collapse-button-small:focus {
+    outline: none;
+}
+
+.vertical {
+    padding-top: 130px;
+    background-color: #222222;
+    list-style-type: none;
+    margin: 0;
+    transition: 0.5s all;
+}
+
+.vertical-small {
+    padding-top: 65px;
+    background-color: #222222;
+    list-style-type: none;
+    margin: 0;
+    transition: 0.5s all;
+}
+
+.navlink-vertical {
+    font-size: 24px;
+    color: #CCAF3D;
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.navlink-vertical:hover, .navlink-vertical:focus {
+    /*color: #222222;
+    background-color: #CCAF3D !important;*/
+    color: #ccaf3d;
+    background-color: #222222 !important;
+    border: 1px solid #ccaf3d !important;
+    text-decoration: none;
+}
+
+.navlink-vertical-small {
+    font-size: 18px;
+    color: #CCAF3D;
+    transition: all 0.5s;
+}
+
+.navlink-vertical-small:hover, .navlink-vertical-small:focus {
+    color: #222222;
+    background-color: #CCAF3D !important;
+}
+
+.vertical-menu {
+    border: 1px solid #ccaf3d;
+    list-style: none;
+    padding: 0px 10px 0px 10px;
+}
+
+.vertical-menu>li>a{
+    width: 100%;
+}
+
+.vertical-menu>li>a:hover{
+    background-color: #ccaf3d;
+    color: #222222;
+    background-color: #CCAF3D !important;
 }
 
 /* Footer */

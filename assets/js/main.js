@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+    if($(window).width() < 1000) {
+        $("#myNavbar").addClass("collapsed");
+        $("#collapseButton").removeClass("collapsed");
+    } else {
+        $("#collapseButton").addClass("collapsed");
+        $("#myNavbar").removeClass("collapsed");
+    }
+
     $("#contact-button").click(function() {
         $("#contact-name-msg").text("");
         $("#contact-email-msg").text("");
@@ -100,6 +108,15 @@ $(document).ready(function() {
 
             $(".dropdown-anim").removeClass("dropdown-item-small");
             $(".dropdown-anim").addClass("dropdown-item");
+
+            $("#collapseClick").removeClass("collapse-button-small");
+            $("#collapseClick").addClass("collapse-button");
+
+            $("#collapsibleMenu").removeClass("vertical-small");
+            $("#collapsibleMenu").addClass("vertical");
+
+            $(".navlink-anim-vertical").removeClass("navlink-vertical-small");
+            $(".navlink-anim-vertical").addClass("navlink-vertical");
         } else {
             $("#navbar-container").removeClass("navstyle");
             $("#navbar-container").addClass("navstyle-small");
@@ -115,7 +132,38 @@ $(document).ready(function() {
 
             $(".dropdown-anim").removeClass("dropdown-item");
             $(".dropdown-anim").addClass("dropdown-item-small");
+
+            $("#collapseClick").removeClass("collapse-button");
+            $("#collapseClick").addClass("collapse-button-small");
+
+            $("#collapsibleMenu").removeClass("vertical");
+            $("#collapsibleMenu").addClass("vertical-small");
+
+            $(".navlink-anim-vertical").removeClass("navlink-vertical");
+            $(".navlink-anim-vertical").addClass("navlink-vertical-small");
         }
     });
 
+    $(window).resize(function() {
+        if($(window).width() < 1000) {
+            $("#myNavbar").addClass("collapsed");
+            $("#collapseButton").removeClass("collapsed");
+            $("#collapseClick").removeClass("collapsed");
+
+            $("#navbarFirst").addClass("col-xs-6");
+            $("#collapseButton").addClass("col-xs-6");
+        } else {
+            $("#collapseButton").addClass("collapsed");
+            $("#myNavbar").removeClass("collapsed");
+            $("#collapsibleMenu").addClass("collapsed");
+            $("#collapseClick").addClass("collapsed");
+
+            $("#navbarFirst").removeClass("col-xs-6");
+            $("#collapseButton").removeClass("col-xs-6");
+        }
+    });
+
+    $("#collapseClick").click(function() {
+        $("#collapsibleMenu").toggleClass("collapsed");
+    });
 });
