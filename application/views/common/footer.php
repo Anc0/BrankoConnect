@@ -9,11 +9,10 @@
         </div>
         <div class="col-xs-4">
             <div class="pull-right">
-                <a
-                        href="https://www.facebook.com/Brankoconnect-Branko-Krašovec-200052377174520/?fref=ts">
+                <a href="https://www.facebook.com/Brankoconnect-Branko-Krašovec-200052377174520/?fref=ts">
                     <i class="fa fa-facebook fa-2x social-links social-facebook"></i>
                 </a>
-                <a href="#linkedin">
+                <a href="https://www.linkedin.com/in/branko-krašovec-41698a39/">
                     <i class="fa fa-linkedin fa-2x social-links social-linkedin"></i>
                 </a>
                 <a href="#twitter">
