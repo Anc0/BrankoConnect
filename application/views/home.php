@@ -6,6 +6,7 @@
         </p>
         <?= $content ?>
     </div>
+
 </div>
 <div class="row home-backgroundcolor">
     <div class="hidden-xs col-sm-1"></div>

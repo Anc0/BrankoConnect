@@ -191,7 +191,12 @@ class Site extends CI_Controller {
     /*** PRIVATE FUNCTIONS *************************/
     private function language($site) {
         $_SESSION['current_site'] = $site;
-        if( !isset($_SESSION['language']) ) {
+        $tld = end(explode(".", $_SERVER['HTTP_HOST']));
+        if($tld == 'com' | $tld == 'net') {
+            $_SESSION['language'] = 'english';
+        } elseif($tld == 'si') {
+            $_SESSION['language'] = 'slovenian';
+        } else {
             $_SESSION['language'] = 'english';
         }
     }

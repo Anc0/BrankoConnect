@@ -13,10 +13,10 @@
         </div>
         <div class="navbar-right navlink-container pull-right collapsed" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a class="navlink navlink-anim" href="<?php echo base_url()?>site/home"><?=$nav_home?></a></li>
-                <li><a class="navlink navlink-anim" href="<?php echo base_url()?>site/about"><?=$nav_about?></a></li>
-                <!--<li><a class="navlink navlink-anim" href="<?php echo base_url()?>site/blog"><?=$nav_blog?></a></li>-->
-                <li><a class="navlink navlink-anim" href="<?php echo base_url()?>site/work"><?=$nav_work?></a></li>
+                <li><a class="navlink navlink-anim" href="<?php echo $_SERVER['HTTP_HOST']?>site/home"><?=$nav_home?></a></li>
+                <li><a class="navlink navlink-anim" href="<?php echo $_SERVER['HTTP_HOST']?>site/about"><?=$nav_about?></a></li>
+                <!--<li><a class="navlink navlink-anim" href="<?php echo $_SERVER['HTTP_HOST']?>site/blog"><?=$nav_blog?></a></li>-->
+                <li><a class="navlink navlink-anim" href="<?php echo $_SERVER['HTTP_HOST']?>site/work"><?=$nav_work?></a></li>
                 <!--<li class="dropdown">
                     <a class="navlink navlink-anim dropdown-toggle" data-toggle="dropdown" href="#"><?=$nav_lang?>
                         <span class="caret"></span></a>
@@ -29,9 +29,9 @@
         </div>
         <div class="vertical collapsed" id="collapsibleMenu">
             <ul class="vertical-menu">
-                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo base_url()?>site/home"><?=$nav_home?></a></li>
-                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo base_url()?>site/about"><?=$nav_about?></a></li>
-                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo base_url()?>site/work"><?=$nav_work?></a></li>
+                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo $_SERVER['HTTP_HOST']?>site/home"><?=$nav_home?></a></li>
+                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo $_SERVER['HTTP_HOST']?>site/about"><?=$nav_about?></a></li>
+                <li><a class="navlink navlink-anim-vertical navlink-vertical" href="<?php echo $_SERVER['HTTP_HOST']?>site/work"><?=$nav_work?></a></li>
                 <!--<li class="dropdown">
                     <a class="navlink navlink-anim-vertical navlink-vertical dropdown-toggle" data-toggle="dropdown" href="#"><?=$nav_lang?>
                         <span class="caret"></span></a>
