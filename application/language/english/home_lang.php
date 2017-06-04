@@ -30,13 +30,13 @@ $lang['home_content'] = "
     </ul>
 </p>
 
-<p class='font-size-14 font-raleway'>Discover a new world which will open complete turnaround in prospecting to you. You will discover how to make prospects wanting to dive into your business, totally automated prospecting system and rejection free prospecting applying <a id='link_001' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>Attraction Marketing.</a></p>
+<p class='font-size-14 font-raleway'>Discover a new world which will open complete turnaround in prospecting to you. You will discover how to make prospects wanting to dive into your business, totally automated prospecting system and rejection free prospecting applying <a id='link_001' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>Attraction Marketing.</a></p>
 
 <p class='font-red font-bold font-size-26 font-center font-raleway'>Shortcut The Process…</p>
 
-<p class='font-size-14 font-raleway'>Save yourself weeks, months, and possibly even years of frustration, and NO RESULTS… and build a successful Network Marketing business and create an instant income in NO TIME FLAT using something called <a id='link_002' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>Attraction Marketing Formula.</a></p>
+<p class='font-size-14 font-raleway'>Save yourself weeks, months, and possibly even years of frustration, and NO RESULTS… and build a successful Network Marketing business and create an instant income in NO TIME FLAT using something called <a id='link_002' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>Attraction Marketing Formula.</a></p>
 
-<p class='font-size-14 font-raleway'>Go ahead and <a id='link_003' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>join the 10 days Attraction Marketing Formula »Boot Camp«</a> for FREE.</p>
+<p class='font-size-14 font-raleway'>Go ahead and <a id='link_003' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>join the 10 days Attraction Marketing Formula »Boot Camp«</a> for FREE.</p>
 
 <p class='font-size-14 font-raleway'>Looking forward to connect with you</p>
 

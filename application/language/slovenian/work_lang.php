@@ -24,8 +24,8 @@ od mene. Karkoli: avto, zavarovanje, poslovni objekt, intelektualne storitve… 
 <p class='font-size-14 font-bold'>»Predstavi vrednost in koristi in ljudje bodo želeli kupiti. Ljudje bodo to prepoznali, če si iskren. Delaj dobre 
 stvari dobro. To je bistvo.«</p>
 
-<p class='font-size-14'>Ko sem na Facebooku zagledal objavo o  <a id='link_004' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>»Attraction Marketingu«</a>, sem v trenutku dobil ime za vse tisto, kar sem že delal 
-v praksi. Delam v mrežnem marketingu in sem takoj spoznal neverjetno moč  <a id='link_005' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>»Atraction Marketing Formule«</a>, ki spreminja stare 
+<p class='font-size-14'>Ko sem na Facebooku zagledal objavo o  <a id='link_004' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>»Attraction Marketingu«</a>, sem v trenutku dobil ime za vse tisto, kar sem že delal 
+v praksi. Delam v mrežnem marketingu in sem takoj spoznal neverjetno moč  <a id='link_005' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>»Atraction Marketing Formule«</a>, ki spreminja stare 
 dogme mrežnega marketinga v prijetno doživetje ljudi, ki niso posiljeni s prodajo, ampak nasprotno, želijo kupiti, saj 
 razumejo, kakšno vrednost in koristi jim prinašam. Prinaša jim prijetno doživetje ob nakupu, namesto stresa.</p>
 

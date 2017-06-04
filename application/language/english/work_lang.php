@@ -24,9 +24,9 @@ intellectual services ... trust me.</p>
 <p class='font-size-14 font-bold'>»Present the values and benefits and people will want to buy. People will recognize that, if you are 
 sincere. Do good things well. This is the essence.«</p>
 
-<p class='font-size-14'>When I saw the posting on a Facebook about  <a id='link_004' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>\"Attraction Marketers,\"</a> I instantly got the name for 
+<p class='font-size-14'>When I saw the posting on a Facebook about  <a id='link_004' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>\"Attraction Marketers,\"</a> I instantly got the name for 
 everything that I did in practice. I have been working in network marketing and I immediately realized 
-the amazing power of  <a id='link_005' class='link-click' href='http://Branko.elitemarketingpro.com/go/amf'>\"Attraction Marketing Formula\"</a>, which amends the old dogmas of network marketing 
+the amazing power of  <a id='link_005' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>\"Attraction Marketing Formula\"</a>, which amends the old dogmas of network marketing 
 into a pleasant experience of people, who are not pushed by selling, but on the contrary, want to buy, 
 because they understand what value and benefits I bring to them. It generates a pleasant experience of 
 buying, rather than stress.</p>
