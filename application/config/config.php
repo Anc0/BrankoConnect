@@ -25,8 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 #$config['base_url'] = 'http://www.brankoconnect.com';
 #$config['base_url'] = 'http://localhost/brankoosebna';
+
 # DEVELOPMENT
 #$config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/brankoosebna";
+
 # PRODUCTION
 $config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'];
 /*

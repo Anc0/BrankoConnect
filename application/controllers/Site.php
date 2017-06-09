@@ -29,7 +29,7 @@ class Site extends CI_Controller {
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
-        $this->load->view('home', $data);
+        $this->load->view('capture_page', $data);
         $this->load->view('common/footer');
     }
 
@@ -45,8 +45,46 @@ class Site extends CI_Controller {
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
-        $this->load->view('home', $data);
+        $this->load->view('capture_page', $data);
         $this->load->view('common/footer');
+    }
+
+    public function sub_email()
+    {
+        $email = $this->test_input($this->input->post('email'));
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.getresponse.com/v3/contacts",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"T0iOr\"\r\n    }\r\n}",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/json",
+                "postman-token: af6bb880-a465-59a1-3e28-a56c430dbe63",
+                "x-auth-token: api-key 3c7594d836647b06e5e49de79a96f501"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            #echo "cURL Error #:" . $err;
+
+        } else {
+            #echo $response;
+
+        }
+
     }
 
     /*** ABOUT *************************************/
@@ -191,7 +229,9 @@ class Site extends CI_Controller {
     /*** PRIVATE FUNCTIONS *************************/
     private function language($site) {
         $_SESSION['current_site'] = $site;
-        $tld = end(explode(".", $_SERVER['HTTP_HOST']));
+        $host = $_SERVER['HTTP_HOST'];
+        $tmp = explode(".", $host);
+        $tld = end($tmp);
         if($tld == 'com' | $tld == 'net') {
             $_SESSION['language'] = 'english';
         } elseif($tld == 'si') {

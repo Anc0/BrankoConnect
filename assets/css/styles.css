@@ -370,10 +370,137 @@ a:hover {
     outline: 0;
 }
 
+/* Capture page */
+
+.capture-page-img {
+    padding-top: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.capture-page-profile {
+    padding-top: 40px;
+    max-width: 260px;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.capture-page-button {
+    border: none;
+    /*border-bottom: 10px solid #ff9212;*/
+    border-radius: 10px;
+    font-family: Lato;
+    color: #ffffff;
+    font-size: 30px;
+    background: #ffc62b;
+    margin-top: 50px;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+    width: 100%;
+
+}
+
+.capture-page-li {
+    color: #42f448;
+}
+
+/* The Modal (background) */
+.capture-page-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 750px;
+}
+
+.capture-page-modal-form {
+    max-width: 634px;
+    margin: 0 auto;
+}
+
+.capture-page-modal-button {
+    border: none;
+    /*border-bottom: 10px solid #ff9212;*/
+    border-radius: 10px;
+    font-family: Lato;
+    color: #ffffff;
+    font-size: 30px;
+    background: #ffc62b;
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.capture-page-modal-input {
+    border-radius: 5px;
+    border: 3px solid #e9e9e9;
+    padding: 10px 25px 10px 25px;
+    background: none;
+    color: #666666;
+    font-family: Lato;
+    height: auto;
+    font-size: 22px;
+    width: 100%;
+}
+
+.capture-page-modal-input-error {
+    border: 3px solid red;
+}
+
+.capture-page-modal-img {
+    max-width: 100%;
+}
+
+.modal-notif-text {
+    padding-top: 5px;
+    padding-left: 30px;
+    margin: 0;
+}
+
 /* Fonts */
 
 .font-red {
     color:#991010;
+}
+
+.font-yellow {
+    color: #ff9212;
+}
+
+.font-blue {
+    color: #305584;
+}
+
+.font-gray {
+    color: #666666;
+}
+
+.font-lightgray {
+    color: #9d9d9d;
+}
+
+.font-green {
+    color: green;
 }
 
 .font-bold {
@@ -384,6 +511,9 @@ a:hover {
     font-style: italic;
 }
 
+.font-underline {
+    text-decoration: underline;
+}
 .font-size-14 {
     font-size:19px;
 }
@@ -396,6 +526,34 @@ a:hover {
     font-size:35px;
 }
 
+.font-size-px-14 {
+    font-size: 14px;
+}
+
+.font-size-px-18 {
+    font-size: 18px;
+}
+
+.font-size-px-20 {
+    font-size: 20px;
+}
+
+.font-size-px-22 {
+    font-size: 22px;
+}
+
+.font-size-px-30 {
+    font-size: 30px;
+}
+
+.font-size-px-40 {
+    font-size: 40px;
+}
+
+.font-size-px-45 {
+    font-size: 45px;
+}
+
 .font-center {
     text-align: center;
 }
@@ -405,5 +563,13 @@ a:hover {
 }
 
 .font-raleway {
-    font-family: "raleway";
+    font-family: Raleway;
+}
+
+.font-lato {
+    font-family: Lato;
+}
+
+.font-opensans {
+    font-family: "Open Sans";
 }

@@ -166,4 +166,61 @@ $(document).ready(function() {
     $("#collapseClick").click(function() {
         $("#collapsibleMenu").toggleClass("collapsed");
     });
+
+    $("#captureButton").click(function() {
+        document.getElementById('captureModal').style.display = "block";
+    });
+
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('captureModal')) {
+            document.getElementById('captureModal').style.display = "none";
+            $("#captureInputModal").removeClass("capture-page-modal-input-error");
+            $("#modalNotif").addClass("hidden");
+            $("#captureInputModal").val("");
+        }
+    };
+
+    $("#modalClose").click(function() {
+        document.getElementById('captureModal').style.display = "none";
+        $("#captureInputModal").removeClass("capture-page-modal-input-error");
+        $("#modalNotif").addClass("hidden");
+        $("#captureInputModal").val("");
+    });
+
+    $("#captureButtonModal").click(function() {
+        var email = $("#captureInputModal").val();
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var url = window.location.href.split('#')[0];
+
+        if(url.substr(url.length - 4, 4) === "home") {
+            var req = "sub_email"
+        } else {
+            var req = "site/sub_email"
+        }
+
+        if(re.test(email)) {
+            $.post(
+                req,
+                {
+                    "email": email
+                },
+                function(data) {
+                    if(data === "") {
+                        $("#subSuccess").text("Email successfully submitted.");
+                        $("#subSuccess").removeClass("hidden");
+                        document.getElementById('captureModal').style.display = "none";
+                    } else {
+                        $("#subSuccess").text("Something went wrong, please try again later");
+                        $("#subSuccess").removeClass("hidden");
+                        document.getElementById('captureModal').style.display = "none";
+                    }
+                }
+            );
+        } else {
+            $("#captureInputModal").addClass("capture-page-modal-input-error");
+            $("#modalNotifText").text("Enter a valid email address.");
+            $("#modalNotif").removeClass("hidden");
+        }
+    });
+
 });
