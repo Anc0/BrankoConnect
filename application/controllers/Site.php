@@ -201,32 +201,8 @@ class Site extends CI_Controller {
 
     }
 
-    /*** INTERNATIONALIZATION **********************/
-    public function english()
-    {
-        $_SESSION['language'] = 'english';
-        redirect(base_url() . "site/" . $_SESSION['current_site']);
-    }
-
-    public function slovenian()
-    {
-        $_SESSION['language'] = 'slovenian';
-        redirect(base_url() . "site/"  . $_SESSION['current_site']);
-    }
-
-    public function get_text_work()
-    {
-        $this->lang->load('work',$_SESSION['language']);
-
-        echo json_encode(array(
-            "name_required" => $this->lang->line('work_required_name'),
-            "email_required" => $this->lang->line('work_required_email'),
-            "email_valid" => $this->lang->line('work_valid_email'),
-            "message_required" => $this->lang->line('work_required_message')
-        ));
-    }
-
     /*** PRIVATE FUNCTIONS *************************/
+    // Set the current site and language (based on url) into session
     private function language($site) {
         $_SESSION['current_site'] = $site;
         $host = $_SERVER['HTTP_HOST'];
@@ -241,6 +217,7 @@ class Site extends CI_Controller {
         }
     }
 
+    // Set the navbar language
     private function nav_lang() {
         $this->lang->load('navbar', $_SESSION['language']);
 
@@ -255,6 +232,7 @@ class Site extends CI_Controller {
         return $data;
     }
 
+    // Format data before entering it into the database
     function test_input($data)
     {
         $data = trim($data);
