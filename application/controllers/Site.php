@@ -23,13 +23,15 @@ class Site extends CI_Controller {
         $data = $this->nav_lang();
 
         $this->lang->load('home',$_SESSION['language']);
+        $this->lang->load('links',$_SESSION['language']);
 
         $data['title'] = $this->lang->line('home_title');
         $data['content'] = $this->lang->line('home_content');
+        $data['link'] = $this->lang->line('capture_page');
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
-        $this->load->view('capture_page', $data);
+        $this->load->view('home', $data);
         $this->load->view('common/footer');
     }
 
@@ -39,52 +41,16 @@ class Site extends CI_Controller {
         $data = $this->nav_lang();
 
         $this->lang->load('home',$_SESSION['language']);
+        $this->lang->load('links',$_SESSION['language']);
 
         $data['title'] = $this->lang->line('home_title');
         $data['content'] = $this->lang->line('home_content');
+        $data['link'] = $this->lang->line('capture_page');
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
-        $this->load->view('capture_page', $data);
+        $this->load->view('home', $data);
         $this->load->view('common/footer');
-    }
-
-    public function sub_email()
-    {
-        $email = $this->test_input($this->input->post('email'));
-
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.getresponse.com/v3/contacts",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"T0iOr\"\r\n    }\r\n}",
-            CURLOPT_HTTPHEADER => array(
-                "cache-control: no-cache",
-                "content-type: application/json",
-                "postman-token: af6bb880-a465-59a1-3e28-a56c430dbe63",
-                "x-auth-token: api-key 3c7594d836647b06e5e49de79a96f501"
-            ),
-        ));
-
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-
-        curl_close($curl);
-
-        if ($err) {
-            #echo "cURL Error #:" . $err;
-
-        } else {
-            #echo $response;
-
-        }
-
     }
 
     /*** ABOUT *************************************/
@@ -94,9 +60,11 @@ class Site extends CI_Controller {
         $data = $this->nav_lang();
 
         $this->lang->load('about',$_SESSION['language']);
+        $this->lang->load('links',$_SESSION['language']);
 
         $data['title'] = $this->lang->line('about_title');
         $data['content'] = $this->lang->line('about_content');
+        $data['link'] = $this->lang->line('capture_page');
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
@@ -198,6 +166,51 @@ class Site extends CI_Controller {
             ));
         }
 
+
+    }
+
+    /*** CAPTURE PAGE ******************************/
+    public function signup() {
+        $_SESSION['current_site'] = "capture";
+
+        $this->load->view('capture_page');
+    }
+
+    public function sub_email()
+    {
+        $email = $this->test_input($this->input->post('email'));
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.getresponse.com/v3/contacts",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"T0iOr\"\r\n    }\r\n}",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/json",
+                "postman-token: af6bb880-a465-59a1-3e28-a56c430dbe63",
+                "x-auth-token: api-key 3c7594d836647b06e5e49de79a96f501"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            #echo "cURL Error #:" . $err;
+
+        } else {
+            #echo $response;
+
+        }
 
     }
 

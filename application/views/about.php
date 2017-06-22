@@ -10,11 +10,11 @@
     <div class="sectors hidden-xs col-sm-2">
         <div class="row">
             <div class="sectors banner-vertical banner-first col-xs-6 col-sm-12">
-                <a id="banner_003" class="link-click" href="https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/" target="_blank"><img
+                <a id="banner_003" class="link-click" href="<?= $link ?>" target="_blank"><img
                             class='banner-img' src="http://www.myelitehub.com/assets/images/banners/amf/AMF_Banner_220x480.png"></a>
             </div>
             <div class="sectors banner-vertical col-xs-6 col-sm-12">
-                <a id="banner_004" class="link-click" href="https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/" target="_blank"><img
+                <a id="banner_004" class="link-click" href="<?= $link ?>" target="_blank"><img
                             class='banner-img' src="http://www.myelitehub.com/assets/images/banners/amf/AMF_Banner2_220x480.jpg"></a>
             </div>
             <div class="hidden-xs col-sm-12 about-stamp">

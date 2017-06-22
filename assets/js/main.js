@@ -190,13 +190,16 @@ $(document).ready(function() {
     $("#captureButtonModal").click(function() {
         var email = $("#captureInputModal").val();
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var url = window.location.href.split('#')[0];
 
-        if(url.substr(url.length - 4, 4) === "home") {
-            var req = "sub_email"
-        } else {
-            var req = "site/sub_email"
+        var tld = window.location.href.split('/')[2];
+        tld = tld.substr(tld.length - 2, 2);
+        if(tld == "om") {
+            tld = "com";
         }
+
+        var url = "http://www.brankoconnect.".concat(tld);
+
+        var req = "sub_email";
 
         if(re.test(email)) {
             $.post(
@@ -206,9 +209,7 @@ $(document).ready(function() {
                 },
                 function(data) {
                     if(data === "") {
-                        $("#subSuccess").text("Email successfully submitted.");
-                        $("#subSuccess").removeClass("hidden");
-                        document.getElementById('captureModal').style.display = "none";
+                        window.location.replace(url);
                     } else {
                         $("#subSuccess").text("Something went wrong, please try again later");
                         $("#subSuccess").removeClass("hidden");

@@ -372,12 +372,30 @@ a:hover {
 
 /* Capture page */
 
-.capture-page-img {
+.capture-page-content {
+    margin-top: 50px;
     padding-top: 50px;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
+}
+
+.capture-page-content-inner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.capture-page-img {
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     display: block;
+}
+
+.capture-page-arrow {
+    max-width: 100%;
+    width: 216px;
+    height:124px;
+    margin-top: 40px;
 }
 
 .capture-page-profile {
@@ -390,21 +408,66 @@ a:hover {
 
 .capture-page-button {
     border: none;
-    /*border-bottom: 10px solid #ff9212;*/
-    border-radius: 10px;
-    font-family: Lato;
-    color: #ffffff;
-    font-size: 30px;
-    background: #ffc62b;
-    margin-top: 50px;
-    padding: 10px 25px 10px 25px;
-    text-decoration: none;
-    width: 100%;
+background-color: white;
 
 }
 
 .capture-page-li {
     color: #42f448;
+}
+
+.font-capturepage-01 {
+    color:#c22019;
+    font-size: 36px;
+    letter-spacing:-1px;
+    font-family:"Bitter",sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-weight: bold;
+}
+
+.font-capturepage-02 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    color: #616161;
+    text-align: center;
+    line-height: 26px;
+    font-family: "Bitter",sans-serif;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.font-capturepage-03 {
+    font-size: 20px;
+    color: #c22019;
+    text-align: left;
+    line-height: 1.1em;
+    font-family: "Bitter",sans-serif;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.font-capturepage-04 {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: "Raleway",sans-serif;
+    color: #444;
+    line-height: 1.6em;
+    min-height: 26px;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.font-capturepage-05 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #383838;
+    line-height: 22px;
+    text-align: center;
+    font-family: "Raleway",sans-serif;
+    margin-top: 25px;
 }
 
 /* The Modal (background) */
@@ -437,18 +500,29 @@ a:hover {
 }
 
 .capture-page-modal-button {
-    border: none;
-    /*border-bottom: 10px solid #ff9212;*/
-    border-radius: 10px;
-    font-family: Lato;
-    color: #ffffff;
-    font-size: 30px;
-    background: #ffc62b;
-    padding: 10px 25px 10px 25px;
-    text-decoration: none;
+    border-top: 1px solid #f9d0a0;
+    padding: 14px 20px;
+    border-radius: 8px;
+    display: block;
+    white-space: normal;
+    background: #f39d13;
+    background: -webkit-linear-gradient(top, #f39d13 0, #c64f01 100%);
+    background: linear-gradient(to bottom,#f39d13 0,#c64f01 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f39d13', endColorstr='#c64f01', GradientType=0);
+    border-radius: 8px;
+    padding: 0;
+    margin: 14px 0 10px;
+    display: block;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border: 3px solid #f0f0f0;
+    border: 1px solid #c94f00;
+    text-shadow: 0 1px #bf1802;
+    font-size: 20px;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
 }
 
 .capture-page-modal-input {
@@ -471,10 +545,32 @@ a:hover {
     max-width: 100%;
 }
 
+.capture-page-modal-center-div {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
 .modal-notif-text {
     padding-top: 5px;
     padding-left: 30px;
     margin: 0;
+}
+
+.font-modal-01 {
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+}
+
+.font-modal-02 {
+    color: #bf080a;
+    font-size: 33px;
+    margin-bottom: 14px;
+    font-weight: 700;
+    line-height: 1.1em;
+    font-family: "Bitter",sans-serif;
 }
 /* Blog page */
 
@@ -538,6 +634,10 @@ a:hover {
     color:#991010;
 }
 
+.font-brightred {
+    color:#c22019;
+}
+
 .font-yellow {
     color: #ff9212;
 }
@@ -599,6 +699,10 @@ a:hover {
 
 .font-size-px-30 {
     font-size: 30px;
+}
+
+.font-size-px-36 {
+    font-size: 36px;
 }
 
 .font-size-px-40 {

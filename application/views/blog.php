@@ -120,7 +120,7 @@
             <p class="blog-text">When he told me which company he’s building with I was like…</p>
             <p class="blog-quote">“Wait, what!?”</p>
             <h1 class="blog-header">And then he showed me the numbers…</h1>
-            <a href="home">
+            <a href="http://www.brankoconnect.com/site/signup">
                 <img class="blog-image-inline"
                  src="http://elitemarketingpro.com/blog/wp-content/uploads/2017/02/30899_Banners_091316-02-1.jpg"/>
             </a>
@@ -174,7 +174,7 @@
             <p class="blog-text">This isn’t the same thing as being in business for yourself.</p>
             <p class="blog-text">Now, there’s nothing wrong with that, you just need to recognize this fact.</p>
             <p class="blog-text font-bold">Importantly, you CAN evolve your distributorship into a business.</p>
-            <p class="blog-text">And that’s what I teach in <a class="blog-link"  href="home">my free 10-day online recruiting bootcamp</a>—how
+            <p class="blog-text">And that’s what I teach in <a class="blog-link"  href="http://www.brankoconnect.com/site/signup">my free 10-day online recruiting bootcamp</a>—how
                 to take control of your brand so
                 that your income is never solely dependent on what happens with your company.</p>
             <p class="blog-text">Now, when I include thinking you’re a business owner in my list of “what’s wrong,” I
@@ -374,7 +374,7 @@
                 importantly, what’s going to work and not work for you and your business.</p>
             <p class="blog-text">And on that note, if you’re ready to start learning actual business skillsets, such as
                 how to develop an online brand and create a loyal following…</p>
-            <p class="blog-text">Then I highly recommend signing up for <a class="blog-link" href="home">my free online recruiting
+            <p class="blog-text">Then I highly recommend signing up for <a class="blog-link" href="http://www.brankoconnect.com/site/signup">my free online recruiting
                     bootcamp.</a></p>
             <p class="blog-text">You’ll learn the exact online business building strategies I use to passively generate
                 300–500 leads per day, 30–50 customers per day, and recruit 70–100 new serious business builders into my
@@ -384,7 +384,7 @@
                 dollars in revenue.</p>
             <p class="blog-text">So if you’re ready to get started…</p>
             <p class="blog-text">
-                <a class="blog-link"  href="home">Simply click here and I’ll gladly give you access to my 10-day bootcamp.
+                <a class="blog-link"  href="http://www.brankoconnect.com/site/signup">Simply click here and I’ll gladly give you access to my 10-day bootcamp.
                 </a>
             </p>
             <p class="blog-text">

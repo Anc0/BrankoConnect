@@ -30,13 +30,13 @@ $lang['home_content'] = "
     </ul>
 </p>
 
-<p class='font-size-14 font-raleway'>Odkrijte nov svet, ki vam bo odprl in omogočil preobrat v procesu pridobivanja sodelavcev. Odkrili boste, kako boste kandidate pripravili do tega, da se bodo želeli pridružiti vašemu poslu in spoznali popolnoma avtomatiziran sistem pridobivanja novih sodelavcev brez zavrnitev z uporabo <a id='link_001' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>»Attraction Marketinga«.</a></p>
+<p class='font-size-14 font-raleway'>Odkrijte nov svet, ki vam bo odprl in omogočil preobrat v procesu pridobivanja sodelavcev. Odkrili boste, kako boste kandidate pripravili do tega, da se bodo želeli pridružiti vašemu poslu in spoznali popolnoma avtomatiziran sistem pridobivanja novih sodelavcev brez zavrnitev z uporabo <a id='link_001' class='link-click' href='http://www.brankoconnect.si/site/signup'>»Attraction Marketinga«.</a></p>
 
 <p class='font-red font-bold font-size-26 font-center font-raleway'>Skrajšajte proces…</p>
 
-<p class='font-size-14 font-raleway'>Prihranite si tedne, mesece in verjetno celo leta frustracij BREZ REZULTATOV ter zgradite uspešen posel v mrežnem marketingu ter ustvarite takojšnje denarne prilive brez odlašanja z uporabo <a id='link_002' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>»Attraction Marketing Formule«.</a></p>
+<p class='font-size-14 font-raleway'>Prihranite si tedne, mesece in verjetno celo leta frustracij BREZ REZULTATOV ter zgradite uspešen posel v mrežnem marketingu ter ustvarite takojšnje denarne prilive brez odlašanja z uporabo <a id='link_002' class='link-click' href='http://www.brankoconnect.si/site/signup'>»Attraction Marketing Formule«.</a></p>
 
-<p class='font-size-14 font-raleway'>Pojdite naprej in se <a id='link_003' class='link-click' href='https://pagecreatorpro.com/Branko/branko-attraction-marketing-formula/'>pridružite »10-dnevnemu Boot Campu za Attraction Marketing Formulo«</a></p>
+<p class='font-size-14 font-raleway'>Pojdite naprej in se <a id='link_003' class='link-click' href='http://www.brankoconnect.si/site/signup'>pridružite »10-dnevnemu Boot Campu za Attraction Marketing Formulo«</a></p>
 
 <p class='font-size-14 font-raleway'>Veselim se povezovanja z vami.</p>
 
