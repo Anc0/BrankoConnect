@@ -628,6 +628,18 @@ background-color: white;
 .blog-link {
     color: #2aabd2;
 }
+
+.blogs-title {
+    font-size: 52px;
+    text-align: center;
+    padding-bottom: 30px;
+    font-family: Montserrat;
+}
+
+.remove-link {
+    text-decoration: none;
+    color: black;
+}
 /* Fonts */
 
 .font-red {

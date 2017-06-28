@@ -7,8 +7,14 @@ class Blog_model extends CI_Model
         $this->load->database();
     }
 
-    public function get_blogs() {
-        return $this->db->query("SELECT * FROM blog_post");
+    public function get_blogs($lang) {
+
+        $query = "SELECT * FROM blog_post WHERE language = ?";
+        $data = array(
+            'language' => $lang
+        );
+
+        return $this->db->query($query, $data);
     }
 
     public function get_blog($id) {
@@ -20,6 +26,8 @@ class Blog_model extends CI_Model
         return $this->db->query($query, $data);
     }
 
+    /* Figure out how to implement authentication
+
     public function create_blog($title, $author, $content) {
         $query = "INSERT INTO blog_post (title, author, content) VALUES (?, ?, ?)";
         $data = array(
@@ -30,7 +38,6 @@ class Blog_model extends CI_Model
 
         return $this->db->query($query, $data);
     }
-
 
     public function update_blog($id, $title, $author, $content) {
         $query = "UPDATE blog_post SET title = ?, author = ?, content = ? WHERE id = ?";
@@ -52,5 +59,5 @@ class Blog_model extends CI_Model
 
         return $this->db->query($query, $data);
     }
-
+    */
 }

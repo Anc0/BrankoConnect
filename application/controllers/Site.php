@@ -80,12 +80,9 @@ class Site extends CI_Controller {
 
         $this->lang->load('blog',$_SESSION['language']);
 
-        $data['title'] = $this->lang->line('blog_title');
-        $data['content'] = $this->lang->line('blog_content');
-
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
-        $this->load->view('blog', $data);
+        $this->load->view('blogs', $data);
         $this->load->view('common/footer');
     }
 
