@@ -9,7 +9,7 @@ class Blog_model extends CI_Model
 
     public function get_blogs($lang) {
 
-        $query = "SELECT * FROM blog_post WHERE language = ?";
+        $query = "SELECT * FROM blog_post WHERE language = ? ORDER BY created DESC";
         $data = array(
             'language' => $lang
         );

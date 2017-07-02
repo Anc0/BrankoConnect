@@ -582,6 +582,12 @@ background-color: white;
     max-width: 734px;
 }
 
+.blog-divider {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: solid 10px #D7E2E0;
+}
+
 .blog-header {
     font-family: Montserrat;
     font-weight: 400;
@@ -639,6 +645,10 @@ background-color: white;
 .remove-link {
     text-decoration: none;
     color: black;
+}
+
+.remove-link-text {
+    color: #333;
 }
 /* Fonts */
 
