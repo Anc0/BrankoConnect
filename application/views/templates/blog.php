@@ -5,6 +5,8 @@
             <p class="blog-subtitle">Written by BRANKO KRAŠOVEC</p>
             <img class="blog-image-center" src="http://www.brankoconnect.com/assets/img/blog_XX/XX.png"/>
 
+
+
             <p class="blog-text"></p>
             <h1 class="blog-header"></h1>
             <img class="blog-image-center" src="http://www.brankoconnect.com/assets/img/blog_XX/XX.png"/>
