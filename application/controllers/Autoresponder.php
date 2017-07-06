@@ -79,9 +79,12 @@ class Autoresponder extends CI_Controller
             header('Location: ' . base_url() . 'autoresponder');
             exit();
         }
+
         $campaign = $this->Autoresponder_model->get_campaign($id);
         $campaign = $campaign->result()[0];
         $data['campaign'] = $campaign;
+        $_SESSION['auto_campaign'] = $id;
+        $_SESSION['auto_campaignname'] = $campaign->name;
 
         $messages = $this->Autoresponder_model->get_messages($campaign->id);
         $messages = $messages->result();
@@ -96,11 +99,60 @@ class Autoresponder extends CI_Controller
             $data['serial'] = $serial;
         }
 
-        echo(isset($data['messages']));
-
         $this->load->view('autoresponder/header');
         $this->load->view('autoresponder/campaign', $data);
         $this->load->view('autoresponder/footer');
+    }
+
+    public function new_campaign() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/new_campaign');
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function create_campaign() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $name = $this->test_input($this->input->post('name'));
+
+        $this->Autoresponder_model->create_campaign($name);
+
+        header('Location: ' . base_url() . 'autoresponder/home');
+        exit();
+    }
+
+    public function delete_campaign($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $messages = $this->Autoresponder_model->get_messages($_SESSION['auto_campaign']);
+        $messages = $messages->result();
+
+        foreach($messages as $row) {
+            $this->Autoresponder_model->delete_message($row->id);
+        }
+
+        $contacts = $this->Autoresponder_model->get_contacts($_SESSION['auto_campaign']);
+        $contacts = $contacts->result();
+
+        foreach($contacts as $row) {
+            $this->Autoresponder_model->delete_contact($row->id);
+        }
+
+        $this->Autoresponder_model->delete_campaign($id);
+
+        header('Location: ' . base_url() . 'autoresponder/home');
+        exit();
     }
 
     /*** MESSAGE PAGE **********************************************/
@@ -111,10 +163,170 @@ class Autoresponder extends CI_Controller
             exit();
         }
         $message = $this->Autoresponder_model->get_message($id);
-        $message = $message->result()[0];
+        $data['message'] = $message->result()[0];
 
-        echo $message->content;
+        $messages = $this->Autoresponder_model->get_messages($_SESSION['auto_campaign']);
+        $messages = $messages->result();
+
+        for($i = 0; $i < count($messages); $i++) {
+            $serials[$i] = $messages[$i]->serial_number;
+        }
+        $data['serials'] = $serials;
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/message', $data);
+        $this->load->view('autoresponder/footer');
     }
+
+    public function update_message($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $serial = $this->test_input($this->input->post('serial'));
+        $subject = $this->test_input($this->input->post('subject'));
+        $sender = $this->test_input($this->input->post('sender'));
+        $content = $this->test_input($this->input->post('content'));
+
+        $this->Autoresponder_model->update_message($id, $serial, $subject, $sender, $content);
+
+        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);        exit();
+    }
+
+    public function new_message($serial) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $data['serial'] = $serial;
+        $data['campaign'] = $_SESSION['auto_campaign'];
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/new_message', $data);
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function create_message() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $serial = $this->test_input($this->input->post('serial'));
+        $subject = $this->test_input($this->input->post('subject'));
+        $sender = $this->test_input($this->input->post('sender'));
+        $content = $this->test_input($this->input->post('content'));
+
+        $this->Autoresponder_model->create_message($serial, $_SESSION['auto_campaign'], $subject, $sender, $content);
+
+        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
+        exit();
+    }
+
+    public function delete_message($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->Autoresponder_model->delete_message($id);
+
+        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
+        exit();
+    }
+
+    /*** CONTACT PAGE **********************************************/
+
+    public function contacts() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $data['campaign'] = $_SESSION['auto_campaign'];
+        $data['campaign_name'] = $_SESSION['auto_campaignname'];
+
+        $contacts = $this->Autoresponder_model->get_contacts($_SESSION['auto_campaign']);
+        $contacts = $contacts->result();
+
+        $data['contacts'] = $contacts;
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/contacts', $data);
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function contact($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $data['campaign'] = $_SESSION['auto_campaign'];
+
+        $contact = $this->Autoresponder_model->get_contact($id);
+        $contact = $contact->result()[0];
+
+        $data['contact'] = $contact;
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/contact', $data);
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function new_contact() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/new_contact');
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function create_contact() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $serial = $this->test_input($this->input->post('serial'));
+        $name = $this->test_input($this->input->post('name'));
+        $email = $this->test_input($this->input->post('email'));
+
+        $result = $this->Autoresponder_model->create_contact($serial, $_SESSION['auto_campaign'], $name, $email);
+
+        header('Location: ' . base_url() . 'autoresponder/contacts');
+        exit();
+    }
+
+    public function update_contact($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $serial = $this->test_input($this->input->post('serial'));
+        $name = $this->test_input($this->input->post('name'));
+        $email = $this->test_input($this->input->post('email'));
+
+        $this->Autoresponder_model->update_contact($id, $serial, $name, $email);
+
+        header('Location: ' . base_url() . 'autoresponder/contacts');
+        exit();
+    }
+
+    public function delete_contact($id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->Autoresponder_model->delete_contact($id);
+
+        header('Location: ' . base_url() . 'autoresponder/contacts');
+        exit();
+    }
+
 
     /*** PRIVATE FUNCTIONS *************************/
 
@@ -128,3 +340,27 @@ class Autoresponder extends CI_Controller
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

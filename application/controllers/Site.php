@@ -211,6 +211,12 @@ class Site extends CI_Controller {
 
     }
 
+    /*** LETTER PAGE *******************************/
+    public function letter() {
+        $this->load->view('common/header');
+        $this->load->view('letter');
+    }
+
     /*** PRIVATE FUNCTIONS *************************/
     // Set the current site and language (based on url) into session
     private function language($site) {

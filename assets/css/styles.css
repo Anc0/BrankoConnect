@@ -572,6 +572,28 @@ background-color: white;
     line-height: 1.1em;
     font-family: "Bitter",sans-serif;
 }
+
+/* Letter page */
+
+.letter-content {
+    padding-top: 50px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    /*border: 1px solid black;*/
+}
+
+.letter-center {
+    text-align: center;
+}
+
+.letter-orange {
+    color: orange;
+}
+
+.letter-blue {
+    color: #0b5de2;
+}
+
 /* Blog page */
 
 .blog-container {
