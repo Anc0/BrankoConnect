@@ -47,17 +47,6 @@ class Autoresponder extends CI_Controller
         }
     }
 
-    public function create_user() {
-        if(!isset($_SESSION['auto_signedin'])) {
-            header('Location: ' . base_url() . 'autoresponder');
-            exit();
-        }
-        $email = $this->test_input($this->input->post('email'));
-        $password = $this->test_input($this->input->post('pwd'));
-
-        echo $this->Autoresponder_model->create_user($email, $password);
-    }
-
     /*** HOME PAGE *************************************************/
 
     public function home() {
@@ -70,6 +59,33 @@ class Autoresponder extends CI_Controller
         $this->load->view('autoresponder/header');
         $this->load->view('autoresponder/home', $data);
         $this->load->view('autoresponder/footer');
+    }
+
+    /*** USER PAGE *************************************************/
+
+    public function new_user() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/new_user');
+        $this->load->view('autoresponder/footer');
+    }
+
+    public function create_user() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $email = $this->test_input($this->input->post('email'));
+        $password = $this->test_input($this->input->post('password'));
+
+        $this->Autoresponder_model->create_user($email, $password);
+
+        header('Location: ' . base_url() . 'autoresponder/home');
+        exit();
     }
 
     /*** CAMPAIGN PAGE *********************************************/

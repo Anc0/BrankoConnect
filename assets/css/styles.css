@@ -594,6 +594,10 @@ background-color: white;
     color: #0b5de2;
 }
 
+.letter-body::after {
+    height: 0px;
+}
+
 /* Blog page */
 
 .blog-container {
