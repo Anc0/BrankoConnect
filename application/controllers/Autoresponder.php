@@ -12,6 +12,7 @@ class Autoresponder extends CI_Controller
         $this->load->helper('language_helper');
 
         $this->load->library('session');
+        $this->load->library('email');
 
         $this->load->model('Autoresponder_model','',TRUE);
 
@@ -171,6 +172,74 @@ class Autoresponder extends CI_Controller
         exit();
     }
 
+    public function send_messages() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $ses_id = $_SESSION['auto_campaign'];
+        $valid = true;
+        $res = 1;
+
+        $contacts = $this->Autoresponder_model->get_contacts($ses_id);
+        $contacts = $contacts->result();
+
+        $messages = $this->Autoresponder_model->get_messages($ses_id);
+        $messages = $messages->result();
+
+        for($i = 1; $i <= 30; $i++) {
+            $day_con = array();
+            $day_mes = array();
+
+            foreach($contacts as $row) {
+                if($i == $row->serial_number) {
+                    array_push($day_con, $row);
+                }
+            }
+            foreach($messages as $row) {
+                if($i == $row->serial_number) {
+                    array_push($day_mes, $row);
+                    break;
+                }
+            }
+
+            if(count($day_mes) > 0 & count($day_con) > 0) {
+                $day_mes = $day_mes[0];
+                $emails = array();
+                foreach($day_con as $row) {
+                    array_push($emails, $row->email);
+                }
+                var_dump($day_con);
+                $this->email->from("branko@brankoconnect.com", "Branko Krašovec");
+                $this->email->bcc($emails, 10);
+                $this->email->subject($day_mes->subject);
+                $this->email->message($day_mes->content);
+                #$res = $this->email->send();
+                $res = 1;
+                if($res == 1) {
+                    foreach ($day_con as $row) {
+                        $day = intval($row->serial_number) + 1;
+                        $this->Autoresponder_model->update_contact($row->id, $day, $row->name, $row->email);
+                    }
+                }
+            } else if (count($day_con) > 0) {
+                foreach ($day_con as $row) {
+                    $day = intval($row->serial_number) + 1;
+                    $this->Autoresponder_model->update_contact($row->id, $day, $row->name, $row->email);
+                }
+            }
+            if($res != 1) {
+                $valid = false;
+            }
+        }
+        if($valid) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
+
     /*** MESSAGE PAGE **********************************************/
 
     public function message($id) {
@@ -301,6 +370,17 @@ class Autoresponder extends CI_Controller
         $this->load->view('autoresponder/footer');
     }
 
+    public function import_contacts() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->load->view('autoresponder/header');
+        $this->load->view('autoresponder/import_contacts');
+        $this->load->view('autoresponder/footer');
+    }
+
     public function create_contact() {
         if(!isset($_SESSION['auto_signedin'])) {
             header('Location: ' . base_url() . 'autoresponder');
@@ -340,6 +420,24 @@ class Autoresponder extends CI_Controller
         $this->Autoresponder_model->delete_contact($id);
 
         header('Location: ' . base_url() . 'autoresponder/contacts');
+        exit();
+    }
+
+    public function import() {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $emails = $this->test_input($this->input->post('emails'));
+
+        $emails = explode(PHP_EOL, $emails);
+
+        foreach ($emails as $email) {
+            $this->Autoresponder_model->create_contact(1, $_SESSION['auto_campaign'], "", $email);
+        }
+
+        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
         exit();
     }
 

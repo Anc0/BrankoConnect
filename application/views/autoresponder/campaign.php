@@ -59,12 +59,19 @@
     </div>
 
     <div class="row auto-buttons">
-        <div class="col-xs-12">
+        <div class="col-xs-4">
+            <p id="auto-message"></p>
+        </div>
+        <div class="col-xs-8">
             <button type="button" class="btn btn-danger pull-right auto-btn-right" data-toggle="modal"
                     data-target="#modalDeleteCampaign">Delete campaign
             </button>
-            <a class="btn btn-primary pull-right auto-btn-right" href="<?php echo base_url() ?>autoresponder/contacts">Edit
-                contacts</a>
+            <a class="btn btn-primary pull-right auto-btn-right"
+               href="<?php echo base_url() ?>autoresponder/import_contacts">Import contacts</a>
+                <a class="btn btn-primary pull-right auto-btn-right"
+                   href="<?php echo base_url() ?>autoresponder/contacts">Edit
+                    contacts</a>
+                <button class="btn btn-primary pull-right auto-btn-right" id="autoSend">Send message</button>
         </div>
     </div>
 
@@ -83,7 +90,8 @@
                         contacts?</p>
                 </div>
                 <div class="modal-footer">
-                    <a type="button" class="btn btn-danger" href="<?php echo base_url()?>autoresponder/delete_campaign/<?= $campaign->id ?>">Delete</a>
+                    <a type="button" class="btn btn-danger"
+                       href="<?php echo base_url() ?>autoresponder/delete_campaign/<?= $campaign->id ?>">Delete</a>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
