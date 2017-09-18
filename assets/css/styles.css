@@ -780,3 +780,38 @@ background-color: white;
 .font-opensans {
     font-family: "Open Sans";
 }
+ /* Asea */
+
+.capture-page-button-msz {
+    background: #E99600;
+    background-image: -webkit-linear-gradient(top, #E99600, #F77802);
+    background-image: -moz-linear-gradient(top, #E99600, #F77802);
+    background-image: -ms-linear-gradient(top, #E99600, #F77802);
+    background-image: -o-linear-gradient(top, #E99600, #F77802);
+    background-image: linear-gradient(to bottom, #E99600, #F77802);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 0px #666666;
+    -webkit-box-shadow: 0px 2px 2px #666666;
+    -moz-box-shadow: 0px 2px 2px #666666;
+    box-shadow: 0px 2px 2px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 34px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-color: #ffffff;
+    width: 100%;
+}
+
+.capture-page-button-msz:hover {
+    background: #ff6600;
+    background-image: -webkit-linear-gradient(top, #ff6600, #ff6600);
+    background-image: -moz-linear-gradient(top, #ff6600, #ff6600);
+    background-image: -ms-linear-gradient(top, #ff6600, #ff6600);
+    background-image: -o-linear-gradient(top, #ff6600, #ff6600);
+    background-image: linear-gradient(to bottom, #ff6600, #ff6600);
+    text-decoration: none;
+    border-color: #ffffff;
+}

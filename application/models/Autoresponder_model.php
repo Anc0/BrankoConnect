@@ -66,13 +66,14 @@ class Autoresponder_model extends CI_Model
 
     /*** MESSAGES ****************************************/
 
-    public function create_message($serial, $campaign, $subject, $sender, $content) {
-        $query = "INSERT INTO auto_message (serial_number, campaign_id, subject, sender, content) VALUES (?, ?, ?, ?, ?);";
+    public function create_message($serial, $campaign, $subject, $sender, $sender_name, $content) {
+        $query = "INSERT INTO auto_message (serial_number, campaign_id, subject, sender, sender_name, content) VALUES (?, ?, ?, ?, ?, ?);";
         $data = array (
             'serial' => $serial,
             'campaign_id' => $campaign,
             'subject' => $subject,
             'sender' => $sender,
+            'sender_name' => $sender_name,
             'content' => $content
         );
 
@@ -97,12 +98,13 @@ class Autoresponder_model extends CI_Model
         return $this->db->query($query, $data);
     }
 
-    public function update_message($id, $serial, $subject, $sender, $content) {
-        $query = "UPDATE auto_message SET serial_number = ?, subject = ?, sender = ?, content = ? WHERE id = ?;";
+    public function update_message($id, $serial, $subject, $sender, $sender_name, $content) {
+        $query = "UPDATE auto_message SET serial_number = ?, subject = ?, sender = ?, sender_name = ?, content = ? WHERE id = ?;";
         $data = array (
             'serial' => $serial,
             'subject' => $subject,
             'sender' => $sender,
+            'senderName' => $sender_name,
             'content' => $content,
             'id' => $id
         );
@@ -172,4 +174,47 @@ class Autoresponder_model extends CI_Model
         return $this->db->query($query, $data);
     }
 
+    /*** SIGNATURE ***************************************/
+
+    public function create_signature($user_id, $email, $name, $content) {
+        $query = "INSERT INTO auto_signature (user_id, email, name, content) VALUES (?, ?, ?, ?);";
+        $data = array(
+            'user_id' => $user_id,
+            'email' => $email,
+            'name' => $name,
+            'content' => $content
+        );
+
+        return $this->db->query($query, $data);
+    }
+
+    public function get_signature($user_id) {
+        $query = "SELECT * FROM auto_signature WHERE user_id = ?";
+        $data = array (
+            'user_id' => $user_id
+        );
+
+        return $this->db->query($query, $data);
+    }
+
+    public function update_signature($user_id, $email, $name, $content) {
+        $query = "UPDATE auto_signature SET email = ?, name = ?, content = ? WHERE user_id = ?;";
+        $data = array (
+            'email' => $email,
+            'name' => $name,
+            'content' =>$content,
+            'id_user' => $user_id
+        );
+
+        return $this->db->query($query, $data);
+    }
+
+    public function delete_signature($user_id) {
+        $query = "DELETE FROM auto_signature WHERE user_id = ?;";
+        $data = array(
+            'user_id' => $user_id
+        );
+
+        return $this->db->query($query, $data);
+    }
 }

@@ -37,11 +37,26 @@
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-8"><h3>
+                Create or edit your signature.
+            </h3>
+        </div>
+        <div class="col-xs-12 col-sm-4 auto-dropdown">
+            <a class="btn btn-primary" href="<?php echo base_url()?>autoresponder/signature/<?= $_SESSION['auto_user'] ?> ">Signature</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8"><h3>
                 Create a new user.
             </h3>
         </div>
         <div class="col-xs-12 col-sm-4 auto-dropdown">
             <a class="btn btn-primary" href="<?php echo base_url()?>autoresponder/new_user">Create new</a>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 20px">
+        <div class="hidden-xs col-sm-8"></div>
+        <div class="col-xs-12 col-sm-4">
+            <a class="btn btn-danger" href="<?= base_url() ?>autoresponder/logout">Log out</a>
         </div>
     </div>
 </div>

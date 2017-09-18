@@ -9,6 +9,7 @@ class Site extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('form_helper');
         $this->load->helper('language_helper');
+        $this->load->helper('download');
 
         $this->load->library('session');
 
@@ -211,15 +212,55 @@ class Site extends CI_Controller {
 
     }
 
-    /*** LETTER PAGE *******************************/
-    public function letter() {
-        $this->load->view('common/header');
-        $this->load->view('letter');
+    /*** ASEA PAGES ********************************/
+    public function msz() {
+        $_SESSION['current_site'] = "capture_msz";
+
+        $this->load->view('asea/capture_page');
     }
 
-    public function letter_02() {
-        $this->load->view('common/header');
-        $this->load->view('letter_02');
+    public function sub_email_msz()
+    {
+        $email = $this->test_input($this->input->post('email'));
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.getresponse.com/v3/contacts",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"4o7y1\"\r\n    }\r\n}",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/json",
+                "postman-token: af6bb880-a465-59a1-3e28-a56c430dbe63",
+                "x-auth-token: api-key 3c7594d836647b06e5e49de79a96f501"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            #echo "cURL Error #:" . $err;
+
+        } else {
+            #echo $response;
+
+        }
+
+    }
+
+    public function prirocnik() {
+        $name = "diploma.pdf";
+        $data = file_get_contents("assets/files/diploma.pdf");
+        force_download($name, $data);
     }
 
     /*** PRIVATE FUNCTIONS *************************/

@@ -35,17 +35,31 @@ class Autoresponder extends CI_Controller
         $email = $this->test_input($this->input->post('email'));
         $password = $this->test_input($this->input->post('pwd'));
 
+        if($email == "" | $password == "") {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
         $user = $this->Autoresponder_model->get_user($email);
         $user = $user->result()[0];
 
         if (password_verify($password, $user->password)) {
             $_SESSION["auto_signedin"] = true;
+            $_SESSION['auto_user'] = $user->id;
             header('Location: ' . base_url() . 'autoresponder/home');
             exit();
         } else {
             header('Location: ' . base_url() . 'autoresponder');
             exit();
         }
+    }
+
+    public function logout() {
+        session_unset();
+        session_destroy();
+
+        header("Location: " . base_url() . "/autoresponder");
+        exit();
     }
 
     /*** HOME PAGE *************************************************/
@@ -188,56 +202,72 @@ class Autoresponder extends CI_Controller
         $messages = $this->Autoresponder_model->get_messages($ses_id);
         $messages = $messages->result();
 
+        $report = array();
+
+        // Iterate for every day of the campaign
         for($i = 1; $i <= 30; $i++) {
             $day_con = array();
             $day_mes = array();
+            unset($daily);
+            $daily['day'] = $i;
 
+            // Get all contacts for i-th day
+            $j = 0;
             foreach($contacts as $row) {
                 if($i == $row->serial_number) {
                     array_push($day_con, $row);
+                    $daily['contact'][$j] = $row;
+                    $j++;
                 }
             }
+            // Get message for i-th day
             foreach($messages as $row) {
                 if($i == $row->serial_number) {
                     array_push($day_mes, $row);
+                    $daily['message'] = $row;
                     break;
                 }
             }
 
+            // If there is a message and contacts on the i-th day
             if(count($day_mes) > 0 & count($day_con) > 0) {
                 $day_mes = $day_mes[0];
                 $emails = array();
+                // Get emails from contacts
                 foreach($day_con as $row) {
                     array_push($emails, $row->email);
                 }
-                var_dump($day_con);
-                $this->email->from("branko@brankoconnect.com", "Branko Krašovec");
+
+                // Prepare email settings and send the email
+                $this->email->from($day_mes->sender, $day_mes->senderName);
                 $this->email->bcc($emails, 10);
                 $this->email->subject($day_mes->subject);
                 $this->email->message($day_mes->content);
                 #$res = $this->email->send();
                 $res = 1;
+                // Check if sending was successful
                 if($res == 1) {
+                    // Increment contacts
                     foreach ($day_con as $row) {
                         $day = intval($row->serial_number) + 1;
                         $this->Autoresponder_model->update_contact($row->id, $day, $row->name, $row->email);
                     }
                 }
+            // Check if there is at least one contact in a day, but no message and increment those contacts
             } else if (count($day_con) > 0) {
                 foreach ($day_con as $row) {
                     $day = intval($row->serial_number) + 1;
                     $this->Autoresponder_model->update_contact($row->id, $day, $row->name, $row->email);
                 }
             }
+            // Check if everything is ok for each day and return 1 or 0 if something went wrong
             if($res != 1) {
                 $valid = false;
             }
+            $daily['valid'] = $res;
+            array_push($report, $daily);
         }
-        if($valid) {
-            echo 1;
-        } else {
-            echo 0;
-        }
+        echo json_encode($report);
     }
 
     /*** MESSAGE PAGE **********************************************/
@@ -271,11 +301,13 @@ class Autoresponder extends CI_Controller
         $serial = $this->test_input($this->input->post('serial'));
         $subject = $this->test_input($this->input->post('subject'));
         $sender = $this->test_input($this->input->post('sender'));
+        $sender_name = $this->test_input($this->input->post('senderName'));
         $content = $this->test_input($this->input->post('content'));
 
-        $this->Autoresponder_model->update_message($id, $serial, $subject, $sender, $content);
+        $this->Autoresponder_model->update_message($id, $serial, $subject, $sender, $sender_name, $content);
 
-        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);        exit();
+        header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
+        exit();
     }
 
     public function new_message($serial) {
@@ -286,6 +318,19 @@ class Autoresponder extends CI_Controller
 
         $data['serial'] = $serial;
         $data['campaign'] = $_SESSION['auto_campaign'];
+
+        $signature = $this->Autoresponder_model->get_signature($_SESSION['auto_user']);
+        if(!empty($signature->result())) {
+            $data['signature'] = $signature->result()[0];
+        } else {
+            $signature = (object) array(
+                'email' => "",
+                'name' => "",
+                'content' => ""
+            );
+
+            $data['signature'] = $signature;
+        }
 
         $this->load->view('autoresponder/header');
         $this->load->view('autoresponder/new_message', $data);
@@ -300,9 +345,10 @@ class Autoresponder extends CI_Controller
         $serial = $this->test_input($this->input->post('serial'));
         $subject = $this->test_input($this->input->post('subject'));
         $sender = $this->test_input($this->input->post('sender'));
+        $sender_name = $this->test_input($this->input->post('senderName'));
         $content = $this->test_input($this->input->post('content'));
 
-        $this->Autoresponder_model->create_message($serial, $_SESSION['auto_campaign'], $subject, $sender, $content);
+        $this->Autoresponder_model->create_message($serial, $_SESSION['auto_campaign'], $subject, $sender, $sender_name, $content);
 
         header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
         exit();
@@ -440,6 +486,73 @@ class Autoresponder extends CI_Controller
         header('Location: ' . base_url() . 'autoresponder/campaign/' . $_SESSION['auto_campaign']);
         exit();
     }
+
+    /*** SIGNATURE PAGE ********************************************/
+
+    public function signature($user_id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+        $signature = $this->Autoresponder_model->get_signature($user_id);
+        if(empty($signature->result())) {
+            $this->load->view('autoresponder/header');
+            $this->load->view('autoresponder/new_signature');
+            $this->load->view('autoresponder/footer');
+        } else {
+            $data['signature'] = $signature->result()[0];
+
+            $this->load->view('autoresponder/header');
+            $this->load->view('autoresponder/signature', $data);
+            $this->load->view('autoresponder/footer');
+        }
+
+    }
+
+    public function create_signature($user_id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $email = $this->test_input($this->input->post('sender'));
+        $name = $this->test_input($this->input->post('senderName'));
+        $content = $this->test_input($this->input->post('content'));
+
+        $this->Autoresponder_model->create_signature($user_id, $email, $name, $content);
+
+        header("Location: " . base_url() . "autoresponder/home");
+        exit();
+    }
+
+    public function update_signature($user_id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $email = $this->test_input($this->input->post('sender'));
+        $name = $this->test_input($this->input->post('senderName'));
+        $content = $this->test_input($this->input->post('content'));
+
+        $this->Autoresponder_model->update_signature($user_id, $email, $name, $content);
+
+        header("Location: " . base_url() . "autoresponder/home");
+        exit();
+    }
+
+    public function delete_signature($user_id) {
+        if(!isset($_SESSION['auto_signedin'])) {
+            header('Location: ' . base_url() . 'autoresponder');
+            exit();
+        }
+
+        $this->Autoresponder_model->delete_signature($_SESSION['auto_user']);
+
+        header("Location: " . base_url() . "autoresponder/home");
+        exit();
+    }
+
 
 
     /*** PRIVATE FUNCTIONS *************************/

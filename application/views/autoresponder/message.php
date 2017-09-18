@@ -30,12 +30,16 @@
                     <input type="text" class="form-control" name="subject" value="<?= $message->subject ?>">
                 </div>
                 <div class="form-group">
-                    <label>From:</label>
+                    <label>From email:</label>
                     <input type="text" class="form-control" name="sender" value="<?= $message->sender ?>">
                 </div>
                 <div class="form-group">
+                    <label>From name:</label>
+                    <input type="text" class="form-control" name="senderName" value="<?= $message->sender_name ?>">
+                </div>
+                <div class="form-group">
                     <label>Content:</label>
-                    <textarea class="form-control" rows="25" name="content"><?= $message->content ?></textarea>
+                    <textarea class="form-control auto-content-area" rows="25" name="content"><?= $message->content ?></textarea>
                 </div>
                 <button type="button" class="btn btn-danger pull-right auto-btn-right" data-toggle="modal"
                         data-target="#modalDeleteMessage">Delete message

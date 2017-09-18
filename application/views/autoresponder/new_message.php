@@ -25,12 +25,16 @@
                     <input type="text" class="form-control" name="subject">
                 </div>
                 <div class="form-group">
-                    <label>From:</label>
-                    <input type="text" class="form-control" name="sender">
+                    <label>From email:</label>
+                    <input type="text" class="form-control" name="sender" value="<?= $signature->email ?>">
+                </div>
+                <div class="form-group">
+                    <label>From name:</label>
+                    <input type="text" class="form-control" name="senderName" value="<?= $signature->name ?>">
                 </div>
                 <div class="form-group">
                     <label>Content:</label>
-                    <textarea class="form-control" rows="25" name="content"></textarea>
+                    <textarea id="contentArea" class="form-control auto-content-area" rows="25" name="content"><?= $signature->content ?></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary pull-right">Create</button>
