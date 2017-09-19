@@ -30,7 +30,7 @@ $(document).ready(function() {
             tld = "com";
         }
 
-        var url = "http://www.brankoconnect.".concat(tld);
+        var url = "http://www.brankoconnect.".concat(tld).concat("/site/prirocnik");
 
         var req = "sub_email_msz";
 
@@ -43,8 +43,10 @@ $(document).ready(function() {
                 function(data) {
                     if(data === "") {
                         window.location.replace(url);
+                        $("#subSuccess").text("Prenos priročnika uspešen.");
+                        $("#subSuccess").removeClass("hidden");
                     } else {
-                        $("#subSuccess").text("Something went wrong, please try again later");
+                        $("#subSuccess").text("Nekaj je šlo narobe, prosimo poskusite znova kasneje.");
                         $("#subSuccess").removeClass("hidden");
                         document.getElementById('captureModalMsz').style.display = "none";
                     }
@@ -52,7 +54,7 @@ $(document).ready(function() {
             );
         } else {
             $("#captureInputModalMsz").addClass("capture-page-modal-input-error");
-            $("#modalNotifTextMsz").text("Enter a valid email address.");
+            $("#modalNotifTextMsz").text("Vnesite veljaven e-mail naslov.");
             $("#modalNotifMsz").removeClass("hidden");
         }
     });

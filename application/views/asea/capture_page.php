@@ -48,7 +48,7 @@
             <p class="font-capturepage-03">V tem vodniku boste spoznali:</p>
             <ul class="fa-ul font-capturepage-04">
                 <li><i class="fa-li fa fa-check capture-page-li"></i>Kaj je funkcionalna medicina</li>
-                <li><i class="fa-li fa fa-check capture-page-li"></i>Kako je stres povezan s splošnim znanjem in kako
+                <li><i class="fa-li fa fa-check capture-page-li"></i>Kako je stres povezan z zdravjem in kako
                     prepoznati znake stresa ter izgorelosti.
                 </li>
                 <li><i class="fa-li fa fa-check capture-page-li"></i>Kako povečati odpornost na stres.</li>
@@ -64,10 +64,10 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <img class="capture-page-img" src="<?php echo base_url() ?>/assets/img/capture_page_03.png">
+            <img class="capture-page-img" src="<?php echo base_url() ?>/assets/img/capture_page_04.png">
             <p class="font-capturepage-05">Kliknite gumb »snemi priročnik« spodaj in po e-pošti boste prejeli brezplačni
                 e-priročnik z osnovnimi pojasnili in nasveti, kako skrbeti za zdravje na boljši način.</p>
-            <button class="capture-page-button-msz" id="captureButtonMsz">Snemi priročnik</button>
+            <button class="capture-page-button-msz" id="captureButtonMsz">Prenesi priročnik</button>
         </div>
         <!-- The Modal -->
         <div id="captureModalMsz" class="capture-page-modal">
@@ -86,16 +86,15 @@
                 <div class="row font-center capture-page-modal-form">
                     <div class="col-xs-12">
                         <p class="font-modal-01">
-                            (enter your email address below and click the
-                            “Get Instant Access!” button to get your 10 day boot-camp)
+                            (vnesite vaš e-mail naslov in pritisnite "Prenesi zdaj")
                         </p>
                         <p class="font-modal-02">
-                            YES, I Want The Bootcamp!
+                            DA, želim MALO ŠOLO ZDRAVJA, uvod v funkcionalno medicino!
                         </p>
                     </div>
                     <div class="col-xs-12">
                         <div class="capture-page-modal-center-div">
-                            <input class="capture-page-modal-input" type="text" placeholder="Enter Your Best Email"
+                            <input class="capture-page-modal-input" type="text" placeholder="Vnesite vaš e-mail naslov"
                                    id="captureInputModalMsz"/></div>
                     </div>
                     <div class="col-xs-12 hidden" id="modalNotifMsz">
@@ -105,13 +104,13 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="capture-page-modal-center-div">
-                            <button class="capture-page-modal-button" id="captureButtonModalMsz">Get Instant Access!
+                            <button class="capture-page-modal-button" id="captureButtonModalMsz">Prenesi zdaj
                             </button>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <p class="font-size-px-18 font-lightgray font-opensans">
-                            We respect your privacy. Your email address will never be shared or sold.
+                            Spoštujemo vašo zasebnost. Vašega e-mail naslova ne bomo delili ali prodali trejim osebam.
                         </p>
                     </div>
                 </div>
