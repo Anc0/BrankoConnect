@@ -41,8 +41,8 @@
         <div class="col-xs-12">
             <p class="font-capturepage-01">»Končno, vodnik po osnovah funkcionalne medicine, brez potrebe po študiju
                 medicine.«</p>
-            <p class="font-capturepage-02">»To je podrobna informacijo o ključnem izvoru težav za človekovo zdravje,
-                ključni ukrepi za ohranitev zdravja in kako celovito skrbeti zanj.«</p>
+            <p class="font-capturepage-02">»To je informacija o izvoru težav s človekovim zdravjem in ključnih ukrepih
+                za celovito skrb in ohranjanje zdravja.«</p>
         </div>
         <div class="col-xs-12 col-md-6">
             <p class="font-capturepage-03">V tem vodniku boste spoznali:</p>

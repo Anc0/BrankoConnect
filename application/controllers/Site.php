@@ -258,8 +258,8 @@ class Site extends CI_Controller {
     }
 
     public function prirocnik() {
-        $name = "diploma.pdf";
-        $data = file_get_contents("assets/files/diploma.pdf");
+        $name = "Prirocnik_MalaSolaZdravja.pdf";
+        $data = file_get_contents("assets/files/Prirocnik_MalaSolaZdravja.pdf");
         force_download($name, $data);
     }
 
