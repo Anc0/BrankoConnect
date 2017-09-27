@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Site extends CI_Controller {
+class Site extends CI_Controller
+{
 
     public function __construct()
     {
@@ -13,7 +14,7 @@ class Site extends CI_Controller {
 
         $this->load->library('session');
 
-        $this->load->model('Site_model','',TRUE);
+        $this->load->model('Site_model', '', TRUE);
 
     }
 
@@ -23,8 +24,8 @@ class Site extends CI_Controller {
         $this->language("home");
         $data = $this->nav_lang();
 
-        $this->lang->load('home',$_SESSION['language']);
-        $this->lang->load('links',$_SESSION['language']);
+        $this->lang->load('home', $_SESSION['language']);
+        $this->lang->load('links', $_SESSION['language']);
 
         $data['title'] = $this->lang->line('home_title');
         $data['content'] = $this->lang->line('home_content');
@@ -41,8 +42,8 @@ class Site extends CI_Controller {
         $this->language("home");
         $data = $this->nav_lang();
 
-        $this->lang->load('home',$_SESSION['language']);
-        $this->lang->load('links',$_SESSION['language']);
+        $this->lang->load('home', $_SESSION['language']);
+        $this->lang->load('links', $_SESSION['language']);
 
         $data['title'] = $this->lang->line('home_title');
         $data['content'] = $this->lang->line('home_content');
@@ -60,8 +61,8 @@ class Site extends CI_Controller {
         $this->language("about");
         $data = $this->nav_lang();
 
-        $this->lang->load('about',$_SESSION['language']);
-        $this->lang->load('links',$_SESSION['language']);
+        $this->lang->load('about', $_SESSION['language']);
+        $this->lang->load('links', $_SESSION['language']);
 
         $data['title'] = $this->lang->line('about_title');
         $data['content'] = $this->lang->line('about_content');
@@ -79,7 +80,7 @@ class Site extends CI_Controller {
         $this->language("blog");
         $data = $this->nav_lang();
 
-        $this->lang->load('blog',$_SESSION['language']);
+        $this->lang->load('blog', $_SESSION['language']);
 
         $this->load->view('common/header');
         $this->load->view('common/navbar', $data);
@@ -109,7 +110,7 @@ class Site extends CI_Controller {
         $this->language("work");
         $data = $this->nav_lang();
 
-        $this->lang->load('work',$_SESSION['language']);
+        $this->lang->load('work', $_SESSION['language']);
 
         $data['title'] = $this->lang->line('work_title');
         $data['content'] = $this->lang->line('work_content');
@@ -131,7 +132,7 @@ class Site extends CI_Controller {
     {
         $this->language("work");
 
-        $this->lang->load('work',$_SESSION['language']);
+        $this->lang->load('work', $_SESSION['language']);
 
         $this->load->library('email');
 
@@ -148,7 +149,7 @@ class Site extends CI_Controller {
 
         $success = $this->Site_model->create_message($name, $email, $content);
 
-        if($success) {
+        if ($success) {
             echo json_encode(array(
                 "success" => $success,
                 "message" => $this->lang->line('work_success'),
@@ -168,7 +169,8 @@ class Site extends CI_Controller {
     }
 
     /*** CAPTURE PAGE ******************************/
-    public function signup() {
+    public function signup()
+    {
         $_SESSION['current_site'] = "capture";
 
         $this->load->view('capture_page');
@@ -188,7 +190,10 @@ class Site extends CI_Controller {
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"T0iOr\"\r\n    }\r\n}",
+            CURLOPT_POSTFIELDS => "{\r\n    
+                \"email\": \"" . $email . "\",\r\n
+                \"campaign\": {\r\n\"campaignId\":\"T0iOr\"\r\n},\r\n
+                \"dayOfCycle\": \"0\"}",
             CURLOPT_HTTPHEADER => array(
                 "cache-control: no-cache",
                 "content-type: application/json",
@@ -196,6 +201,8 @@ class Site extends CI_Controller {
                 "x-auth-token: api-key 3c7594d836647b06e5e49de79a96f501"
             ),
         ));
+
+
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
@@ -213,7 +220,8 @@ class Site extends CI_Controller {
     }
 
     /*** ASEA PAGES ********************************/
-    public function msz() {
+    public function msz()
+    {
         $_SESSION['current_site'] = "capture_msz";
 
         $this->load->view('asea/capture_page');
@@ -233,7 +241,10 @@ class Site extends CI_Controller {
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{\r\n    \"email\": \"" . $email . "\",\r\n    \"campaign\": {\r\n        \"campaignId\": \"4o7y1\"\r\n    }\r\n}",
+            CURLOPT_POSTFIELDS => "{\r\n    
+                \"email\": \"" . $email . "\",\r\n
+                \"campaign\": {\r\n\"campaignId\":\"4o7y1\"\r\n},\r\n
+                \"dayOfCycle\": \"0\"}",
             CURLOPT_HTTPHEADER => array(
                 "cache-control: no-cache",
                 "content-type: application/json",
@@ -257,7 +268,8 @@ class Site extends CI_Controller {
 
     }
 
-    public function prirocnik() {
+    public function prirocnik()
+    {
         $name = "Prirocnik_MalaSolaZdravja.pdf";
         $data = file_get_contents("assets/files/Prirocnik_MalaSolaZdravja.pdf");
         force_download($name, $data);
@@ -265,14 +277,15 @@ class Site extends CI_Controller {
 
     /*** PRIVATE FUNCTIONS *************************/
     // Set the current site and language (based on url) into session
-    private function language($site) {
+    private function language($site)
+    {
         $_SESSION['current_site'] = $site;
         $host = $_SERVER['HTTP_HOST'];
         $tmp = explode(".", $host);
         $tld = end($tmp);
-        if($tld == 'com' | $tld == 'net') {
+        if ($tld == 'com' | $tld == 'net') {
             $_SESSION['language'] = 'english';
-        } elseif($tld == 'si') {
+        } elseif ($tld == 'si') {
             $_SESSION['language'] = 'slovenian';
         } else {
             $_SESSION['language'] = 'english';
@@ -280,7 +293,8 @@ class Site extends CI_Controller {
     }
 
     // Set the navbar language
-    private function nav_lang() {
+    private function nav_lang()
+    {
         $this->lang->load('navbar', $_SESSION['language']);
 
         $data['nav_home'] = $this->lang->line('nav_home');

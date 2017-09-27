@@ -201,7 +201,7 @@ $(document).ready(function() {
 
         var req = "sub_email";
 
-        if(re.test(email)) {pošta
+        if(re.test(email)) {
             $.post(
                 req,
                 {
