@@ -219,6 +219,21 @@ class Site extends CI_Controller
 
     }
 
+    /*** BRANKOCONECT PRO PAGES ********************/
+    public function mmm() {
+
+    }
+
+    public function sub_email_mmm() {
+
+    }
+
+    public function prirocnik_mmm() {
+        $name = "Mala_sola_mreznega_marketinga.pdf";
+        $data = file_get_contents("assets/files/Mala_sola_mreznega_marketinga.pdf");
+        force_download($name, $data);
+    }
+
     /*** ASEA PAGES ********************************/
     public function msz()
     {
