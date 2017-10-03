@@ -65,7 +65,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <img class="capture-page-img" src="<?php echo base_url() ?>/assets/img/capture_page_04.png">
-            <p class="font-capturepage-05">Kliknite gumb »snemi priročnik« spodaj in po e-pošti boste prejeli brezplačni
+            <p class="font-capturepage-05">Kliknite gumb »snemi priročnik« spodaj in prejeli boste brezplačni
                 e-priročnik z osnovnimi pojasnili in nasveti, kako skrbeti za zdravje na boljši način.</p>
             <button class="capture-page-button-msz" id="captureButtonMsz">Prenesi priročnik</button>
         </div>

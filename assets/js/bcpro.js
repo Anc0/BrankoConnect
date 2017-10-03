@@ -30,7 +30,7 @@ $(document).ready(function() {
             tld = "com";
         }
 
-        var url = "http://www.brankoconnect.".concat(tld).concat("/site/prirocnik");
+        var url = "http://www.brankoconnect.".concat(tld).concat("/site/prirocnik_mmm");
 
         var req = "sub_email_mmm";
 

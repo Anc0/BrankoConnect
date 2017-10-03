@@ -241,7 +241,7 @@ class Site extends CI_Controller
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => "{\r\n    
                 \"email\": \"" . $email . "\",\r\n
-                \"campaign\": {\r\n\"campaignId\":\"4o7y1\"\r\n},\r\n
+                \"campaign\": {\r\n\"campaignId\":\"4M0Kx\"\r\n},\r\n
                 \"dayOfCycle\": \"0\"}",
             CURLOPT_HTTPHEADER => array(
                 "cache-control: no-cache",

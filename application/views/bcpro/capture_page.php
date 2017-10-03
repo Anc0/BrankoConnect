@@ -63,8 +63,8 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <img class="capture-page-img" src="<?php echo base_url() ?>/assets/img/capture_page_bcpro_01.jpg">
-            <p class="font-capturepage-05">Kliknite gumb »snemi priročnik« spodaj in po e-pošti boste prejeli brezplačni
-                e-priročnik z osnovnimi pojasnili in nasveti, kako skrbeti za zdravje na boljši način.</p>
+            <p class="font-capturepage-05">Kliknite gumb »snemi priročnik« spodaj in prejeli boste brezplačni
+                e-priročnik, Mala šola mrežnega marketinga.</p>
             <button class="capture-page-button-msz" id="captureButtonMmm">Prenesi priročnik</button>
         </div>
         <!-- The Modal -->
